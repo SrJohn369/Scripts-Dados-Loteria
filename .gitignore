@@ -6,3 +6,6 @@ venv
 
 # python cache #
 __pycache__
+
+# Arquivos para testes
+testes.py
