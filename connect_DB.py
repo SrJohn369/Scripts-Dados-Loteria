@@ -3,22 +3,22 @@ import os
 
 
 # Defina as informações de conexão
-dbname = os.environ("DB_NAME")
-user = os.environ("USER")
-password = os.environ("PASSWORD")
-host = os.environ("HOST")
-port = os.environ("PORT")
+__dbname = os.environ.get("DB_NAME")
+__user = os.environ.get("USER")
+__password = os.environ.get("PASSWORD")
+__host = os.environ.get("HOST")
+__port = os.environ.get("PORT")
 
 
 # Conecte-se ao banco de dados
 def conectarBanco():
     try:
         conn = psycopg2.connect(
-            dbname=dbname,
-            user=user,
-            password=password,
-            host=host,
-            port=port
+            dbname=__dbname,
+            user=__user,
+            password=__password,
+            host=__host,
+            port=__port
         )
 
         print("Conexão bem-sucedida!")
