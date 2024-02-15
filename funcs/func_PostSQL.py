@@ -1,4 +1,4 @@
-from connect_DB import *
+from connections.connect_DB_PSQL import *
 
 
 conn = conectarBanco()
@@ -44,7 +44,7 @@ def adicionar_dados(dataFrame: dict, tabela: str):
         table = f'CREATE TABLE IF NOT EXISTS {tabela} '
         for i, column in enumerate(dataFrame.keys()):
             if i == 0:
-                table += f'({column} SERIAL PRIMARY KEY,'
+                table += f'({column} PRIMARY KEY,'
             elif len(dataFrame.keys()) == (i+1):
                 table += f'{column} SMALLINT);'
             else:
