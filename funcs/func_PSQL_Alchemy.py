@@ -1,8 +1,10 @@
-from connections.connect_SQLAlchemy import get_db, criar_db
+from connections.connect_SQLAlchemy import get_db
+from datetime import datetime
 
 import numpy as np
 
 import traceback
+
 
 def criar_dataFrame(arquivoXLSX: str, qntd_colunm: int) -> dict:
     '''
@@ -37,8 +39,6 @@ def adicionar_dados(dataFrame: dict, Jogo: any):
     A função irá dar dados de status de cada coluna adicionada
     '''
     ######## ADICIONAR DADOS À TABELA ########
-    criar_db()
-     
     with get_db() as db:
         try: 
             print("\n!!Conexão bem sucedida!!\n")
@@ -57,7 +57,10 @@ def adicionar_dados(dataFrame: dict, Jogo: any):
                     if isinstance(dataFrame[column][line], np.int64):
                         values[column] = int(dataFrame[column][line])
                     else:
-                        values[column] = dataFrame[column][line]
+                        # Convertendo valores str para formato timestamp para Date para o DB
+                        data = dataFrame[column][line]
+                        data_foramatada = datetime.strptime(data, "%d/%m/%Y")
+                        values[column] = data_foramatada
 
                 # Adicioando dados
                 data_concurso = Jogo(**values)
