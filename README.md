@@ -1,5 +1,6 @@
 # Scripts-Dados-Loteria  
-![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)  
+![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
+![Static Badge](https://img.shields.io/badge/license-mit-%235CE500?style=for-the-badge)
 ## Descrição
 Este reepositório tem finalidade mostrar como, usando python, podemos capturar dados de um arquivo .xlsx e armazenar os dados em um banco de dados.  
 Os Scripts foram criados pensando nas loterias caixa para os sorteios Mega-Sena Quina LotoFácil e Milionária  
@@ -23,7 +24,7 @@ Estas funções estarão presentes em todos os scripts de `/funcs`, sofrendo ada
 ## Requisitos e Execução
 Para que este repositório seja executado em sua máquina alguns requisitos devem ser atendidos.
 * Faça o download do repositório clicando [aqui](https://github.com/SrJohn369/Scripts-Dados-Loteria/archive/refs/heads/main.zip)
-* Deve ter intalado no seu sistema `Python v3.12.1`+
+* Você deve ter instalado no seu sistema `Python v3.11`+
 * Crie um Ambiente virtual na pasta com o comando: ```python -m venv nome-do-ambiente``` (Modifique o `.gitignore` adcionando seu ambiente criado)
 * Ative seu ambiente virtual e execute o arquivo requirements.txt com o comando ```pip install -r requirements.txt``` para instalar os requisitos necessários.
 ## Contribuidores
