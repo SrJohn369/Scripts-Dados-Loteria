@@ -20,9 +20,10 @@ Estas funções estarão presentes em todos os scripts de `/funcs`, sofrendo ada
 `criar_dataFrame()`: Esta função irá capturar todos os dados do arquivo .xlsx e criará um dicionário com todos os dados.  
 `adicionar_dados()`: Esta função deverá criar tabelas caso não exista e armazenar os dados nesta tabela. A função irá dar dados de status de cada linha ou colunas adicionadas de acordo com o script que está sendo usado
 ## Estrutura do projeto
-## Requisitos para este diretório
-* Certifique-se de ter o `Python v3.12.1` intalado
-## Execução
-## Erros Comuns
-erros comuns para documentar com sqlachemy ... problemas com numpy.int64 no Supabase, e SSL no render
+## Requisitos e Execução
+Para que este repositório seja executado em sua máquina alguns requisitos devem ser atendidos.
+* Faça o download do repositório clicando [aqui](https://github.com/SrJohn369/Scripts-Dados-Loteria/archive/refs/heads/main.zip)
+* Deve ter intalado no seu sistema `Python v3.12.1`+
+* Crie um Ambiente virtual na pasta com o comando: ```python -m venv nome-do-ambiente``` (Modifique o `.gitignore` adcionando seu ambiente criado)
+* Ative seu ambiente virtual e execute o arquivo requirements.txt com o comando ```pip install -r requirements.txt``` para instalar os requisitos necessários.
 ## Contribuidores
