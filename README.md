@@ -13,10 +13,15 @@ Os Scripts foram criados pensando nas loterias caixa para os sorteios Mega-Sena 
 ![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white)
 ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
 ![SQLALCHEMY](https://img.shields.io/badge/SQLAlchemy-%23D71F00?style=for-the-badge&logo=sqlalchemy)
-## Funcionalidades
-Capturar dados do .xlsx: 
+![PostgreSQL](https://img.shields.io/badge/postgresql-%234169E1?style=for-the-badge&logo=postgresql&logoColor=%23FFF)
+## Funções Principais
+Estas funções estarão presentes em todos os scripts de `/funcs`, sofrendo adaptações e cada um deles.  
+  
+`criar_dataFrame()`: Esta função irá capturar todos os dados do arquivo .xlsx e criará um dicionário com todos os dados.  
+`adicionar_dados()`: Esta função deverá criar tabelas caso não exista e armazenar os dados nesta tabela. A função irá dar dados de status de cada linha ou colunas adicionadas de acordo com o script que está sendo usado
 ## Estrutura do projeto
-## Requisitos
+## Requisitos para este diretório
+* Certifique-se de ter o `Python v3.12.1` intalado
 ## Execução
 ## Erros Comuns
 erros comuns para documentar com sqlachemy ... problemas com numpy.int64 no Supabase, e SSL no render
