@@ -88,7 +88,8 @@ def adicionar_dados(dataFrame: dict, tabela: str):
                     query += f"{value}, "
             
             # DEBUG
-            print("VALOR ADICIONADO: \n",query)
+            os.system("cls")
+            print(f"(STATUS) Concurso adicionado: {line+1} / {len(dataFrame['concurso'])}")
             cursor.execute(query)
 
 

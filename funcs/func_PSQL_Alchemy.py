@@ -2,7 +2,7 @@ from connections.connect_SQLAlchemy import get_db
 from datetime import datetime
 
 import numpy as np
-
+import os
 import traceback
 
 
@@ -67,6 +67,7 @@ def adicionar_dados(dataFrame: dict, Jogo: any):
                 db.add(data_concurso)
                 
                 # DEBUG
+                os.system("cls")
                 print(f"(Status)Concurso adicionado: {line+1} / {len(dataFrame['concurso'])}")
 
             print("!!OS DADOS AINDA NÃO FORAM SALVOS!!")

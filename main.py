@@ -1,4 +1,5 @@
 from funcs.func_PSQL_Alchemy import criar_dataFrame, adicionar_dados
+from funcs.func_SQLITE import criar_dataFrame, adicionar_dados
 from models.models import *
 
 
@@ -19,7 +20,12 @@ def megaSena():
 def lotoFacil():
     dataFrame = criar_dataFrame("./data/Lotofácil.xlsx", 17)
     adicionar_dados(dataFrame, Jogo=LotoFacil)
+    
+
+def sqliteTestDB():
+    dataFrame = criar_dataFrame("./data/Mega-Sena.xlsx", 8)
+    adicionar_dados(dataFrame, tabela="megasena")
 
 
 if __name__ == "__main__":
-    lotoFacil()
+    sqliteTestDB()

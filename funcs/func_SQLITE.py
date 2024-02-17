@@ -1,7 +1,8 @@
-# "./xlsx/Lotofácil.xlsx"
+import os
+import traceback
 
 
-def criar_novo_df(arquivoXLSX: str, qntd_colunm: int) -> dict:
+def criar_dataFrame(arquivoXLSX: str, qntd_colunm: int) -> dict:
     '''
     arquivoXLSX - Este arquivo deve ser do tipo .xlsx \n
     qntd_colunm - quantidade de colunas para o novo DataFrame \n
@@ -35,7 +36,7 @@ def adicionar_dados(dataFrame: dict, tabela: str):
     '''
     import sqlite3 as sql
 
-    conn = sql.connect('db.sqlite3')
+    conn = sql.connect('./data/db.sqlite3')
     cursor = conn.cursor()
 
     ####### CRIAR TABELA #######
@@ -54,43 +55,45 @@ def adicionar_dados(dataFrame: dict, tabela: str):
         
         cursor.execute(table); print(table)
 
-    except sql.Error as err:
+    except Exception as err:
         return "Erro ao criar a tabela: ", err
 
     ######## ADICIONAR DADOS À TABELA ########
     try: 
 
-        print("...Adicionando dados...")
-        for j, key in enumerate(dataFrame.keys()):
-            print("Coluna a adicionar:", key)
-            input(f"Inciando o insert da coluna {key}...Enter para continuar...")
-            for k, valor in enumerate(dataFrame[key]):
-                if j == 0:
-                    cursor.execute(
-                        f"""INSERT INTO {tabela} ({key}) VALUES ({valor});"""
-                    )
-                    print("Status:", f"{k+1}" + " /", len(dataFrame[key]))
-                elif j > 0:
-                    #Em -> WHERE concurso = '{dataFrame["concurso"][k]}'; é feito assim para evitar erros de contagem por exemplo 2894 e logo após 2896 que quebra a contagem  
-                    cursor.execute(
-                        f"""UPDATE {tabela}
-                            SET {key} = '{valor}'
-                            WHERE concurso = '{dataFrame["concurso"][k]}';"""
-                    )
-                    print("Status:", f"{k+1}" + " /", len(dataFrame[key]))
+        # Utizamos concurso pois é imutável e referece tanto ao sorteio quanto a data dele 
+        # e cada linha representa um sorteio diferente
+        for line in range(len(dataFrame['concurso'])):
+            # Vamo criar uma query para gerar um SQL
+            query = f'INSERT INTO {tabela} VALUES ('
+
+            values = []
             
-            print("\nAdicionado:", "Status:", f"{j+1} /", len(dataFrame.keys()))
-            print("!!OS DADOS AINDA NÃO FORAM SALVOS!!")
-            input("Enter para continuar para próxima coluna...")
+            # adiciona dados de acordo com a linha
+            for column in dataFrame.keys():
+                values.append(dataFrame[column][line])
+
+            # iterar string para adicionar os dados de forma dinânmica para evitar error de integridade de dados
+            for i, value in enumerate(values):
+                if i == 1:
+                    query += f"'{value}', "
+                elif (i+1) == len(values):
+                    query += f"{value});"
+                else:
+                    query += f"{value}, "
+            
+            # DEBUG
+            os.system("cls")
+            print(f"(STATUS) Concurso adicionado: {line+1} / {len(dataFrame['concurso'])}")
+            cursor.execute(query)
+
+
+        print("!!OS DADOS AINDA NÃO FORAM SALVOS!!")
         input("OS DADOS SERÃO SALVOS APERTE ENTER PARA CONFIRMAR...")
-        conn.commit()
-        conn.close()
+        conn.commit()        
+        print("DADOS SALVOS COM SUCESSO!!")
 
-    except sql.Error as err:
+    except Exception as err:
         conn.rollback()
+        print(traceback.format_exc())
         return "Erro ao adicionar dados: ", err
-
-
-novo_df = criar_novo_df("./xlsx/Lotofácil.xlsx", 17)
-
-# query += "('" + "', '".join(str(value) for value in values) + "');"
