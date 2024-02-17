@@ -21,6 +21,7 @@ Estas funções estarão presentes em todos os scripts de `/funcs`, sofrendo ada
 `criar_dataFrame()`: Esta função irá capturar todos os dados do arquivo .xlsx e criará um dicionário com todos os dados.  
 `adicionar_dados()`: Esta função deverá criar tabelas caso não exista e armazenar os dados nesta tabela. A função irá dar dados de status de cada linha ou colunas adicionadas de acordo com o script que está sendo usado
 ## Estrutura do projeto
+![image](https://github.com/SrJohn369/Scripts-Dados-Loteria/assets/106630200/1c786a2a-05f9-4ee3-8a3e-cc0d0c6270af)
 ## Requisitos e Execução
 Para que este repositório seja executado em sua máquina alguns requisitos devem ser atendidos.
 * Faça o download do repositório clicando [aqui](https://github.com/SrJohn369/Scripts-Dados-Loteria/archive/refs/heads/main.zip)
