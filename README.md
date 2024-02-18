@@ -1,5 +1,5 @@
 # Scripts-Dados-Loteria  
-![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
+![Concluído](http://img.shields.io/static/v1?label=STATUS&message=CONCLUÍDO&color=GREEN&style=for-the-badge)
 ![Static Badge](https://img.shields.io/badge/license-mit-%235CE500?style=for-the-badge)
 ## Descrição
 Este reepositório tem finalidade mostrar como, usando python, podemos capturar dados de um arquivo .xlsx e armazenar os dados em um banco de dados.  
